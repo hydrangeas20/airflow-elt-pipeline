@@ -1,8 +1,8 @@
-🚀 e2e-elt-pipeline-airflow — Airflow ELT Pipeline (NASA API → PostgreSQL)
+# 🚀 e2e-elt-pipeline-airflow — Airflow ELT Pipeline (NASA API → PostgreSQL)
 
 This repository implements a production style ELT pipeline orchestrated with Apache Airflow. The pipeline extracts JSON data from an external REST API (NASA APOD – Astronomy Picture of the Day), performs lightweight transformation, and loads curated records into a PostgreSQL database. The workflow is containerized using Docker for reproducibility across environments.
 
-🌍 Overview
+## 🌍 Overview
 
 This project demonstrates how to build a production-style data engineering workflow with:
 
@@ -18,7 +18,7 @@ This project demonstrates how to build a production-style data engineering workf
 
 - Containerized services using Docker (Airflow + Postgres)
 
-🛰️ Problem Context: API-Based Data Ingestion
+### 🛰️ Problem Context: API-Based Data Ingestion
 
 Many modern data pipelines rely on ingesting data from external APIs (e.g., analytics, telemetry, finance, observability, public datasets). These sources often deliver information as JSON responses, which must be extracted, cleaned, validated, and stored for downstream analysis.
 
@@ -30,7 +30,7 @@ This project simulates a real-world ingestion pipeline where Airflow is used to:
 
 - Persist records into a relational database for reporting and querying
 
-📡 Dataset / Data Source
+### 📡 Dataset / Data Source
 
 This pipeline extracts data from:
 
@@ -40,27 +40,23 @@ Each daily API response contains structured metadata, including:
 
 ```bash
 title
-
 explanation
-
 url
-
 date
-
 media_type
 ```
 
 The pipeline stores these fields in PostgreSQL for historical querying and analysis.
 
-✨ Key Features
+### ✨ Key Features
 
-🧩 Airflow DAG Orchestration
+#### 🧩 Airflow DAG Orchestration
 
 - DAG-based pipeline execution with task dependencies
 
 - Scheduled execution (daily pipeline runs)
 
-Airflow UI support for:
+<b>Airflow UI support for:</b>
 
 - Run history
 
@@ -68,19 +64,19 @@ Airflow UI support for:
 
 - Logs and troubleshooting
 
-🌐 API Extraction (HTTP Operator)
+#### 🌐 API Extraction (HTTP Operator)
 
 - Uses Airflow’s SimpleHttpOperator to fetch JSON payloads
 
 - Handles API integration in a reusable Airflow pattern
 
-🔄 Transformation (TaskFlow API)
+#### 🔄 Transformation (TaskFlow API)
 
 - Transforms raw JSON into a cleaned structured object
 
 - Extracts relevant fields and enforces formatting consistency
 
-🗄️ Load into PostgreSQL (Hook + Operator)
+#### 🗄️ Load into PostgreSQL (Hook + Operator)
 
 - Uses PostgresHook / PostgresOperator to interact with PostgreSQL
 
@@ -88,7 +84,7 @@ Airflow UI support for:
 
 - Loads transformed records into structured relational storage
 
-🐳 Dockerized Services
+### 🐳 Dockerized Services
 
 - Airflow and PostgreSQL run as isolated services through Docker
 
@@ -96,7 +92,7 @@ Airflow UI support for:
 
 - Database persistence supported through Docker volumes
 
-🧱 Pipeline Stages
+### 🧱 Pipeline Stages
 
 The ELT pipeline consists of three core stages:
 
@@ -120,7 +116,7 @@ Creates table if missing
 
 Inserts transformed record into PostgreSQL
 
-🧠 Tech Stack
+### 🧠 Tech Stack
 
 Language: Python
 
@@ -134,7 +130,7 @@ Operators/Hooks: SimpleHttpOperator, TaskFlow API, PostgresHook
 
 Containerization: Docker + Docker Compose
 
-📁 Repository Structure
+### 📁 Repository Structure
 
 ```bash
 e2e-elt-pipeline-airflow/
@@ -147,7 +143,7 @@ e2e-elt-pipeline-airflow/
 └── README.md
 ```
 
-📋 Setup & Usage
+### 📋 Setup & Usage
 
 1. Start services (Docker)
    docker compose up -d
@@ -161,7 +157,7 @@ Enable the DAG in Airflow
 
 Trigger a manual run OR allow schedule to execute automatically
 
-⚙️ Workflow Architecture Summary
+### ⚙️ Workflow Architecture Summary
 
 This project demonstrates a practical pipeline architecture commonly used in production environments:
 
