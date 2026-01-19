@@ -205,5 +205,8 @@ hdurl https://apod.nasa.gov/apod/image/2601/Ctb1_Konzelmann_4009.jpg
 The pipeline also retrieves the daily image URL
 
 Example image retrieved from the NASA API:
+<img width="778" height="719" alt="Screenshot 2026-01-19 at 12 45 03 AM" src="https://github.com/user-attachments/assets/a36e87c5-64fb-4c51-905c-74e656f9f92a" />
 
 ### 🛰️ Airflow DAG Output Table
+<img width="618" height="491" alt="Screenshot 2026-01-19 at 1 17 49 AM" src="https://github.com/user-attachments/assets/5328fe82-2f50-473c-b0c0-97ade4e22dd3" />
+
