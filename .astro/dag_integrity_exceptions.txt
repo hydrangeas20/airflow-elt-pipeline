@@ -1,0 +1,41 @@
+DAG Integrity Notes / Exceptions
+===============================
+
+This project uses Apache Airflow to orchestrate an ELT pipeline that extracts data from the NASA APOD API and loads it into PostgreSQL.
+
+Common reasons the DAG may fail to parse or run:
+
+1) Missing Airflow Connections
+------------------------------
+The following Airflow connections must exist for successful execution:
+
+- postgres_default
+  Used by PostgresHook/PostgresOperator to connect to PostgreSQL.
+
+- nasa_api (HTTP connection)
+  Used by SimpleHttpOperator to call the NASA APOD API endpoint.
+
+2) Missing Environment Variables
+--------------------------------
+The pipeline expects the following environment variables to be configured:
+
+- NASA_API_KEY
+  Required to authenticate requests to the NASA APOD API.
+
+If this is missing, the extract task will fail with a 403/401 or an empty response.
+
+3) Container Startup Ordering
+-----------------------------
+If Postgres has not fully initialized before Airflow tasks execute, database tasks may temporarily fail.
+Recommended fix: use retry logic in tasks or ensure Docker Compose healthchecks are enabled.
+
+4) Schema / Table Initialization
+--------------------------------
+The DAG includes a "create table if not exists" step, but the Postgres user must have permissions to create tables.
+
+If permissions are restricted, the load stage will fail.
+
+Status
+------
+No unresolved DAG parsing errors.
+All known issues are configuration-related and solvable via Airflow connections and env setup.

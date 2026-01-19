@@ -1,0 +1,45 @@
+# Ignore Python cache / compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+.env/
+.venv/
+
+# Ignore git + editor files
+.git/
+.gitignore
+.DS_Store
+.vscode/
+.idea/
+
+# Ignore docs / markdown
+README.md
+*.md
+
+# Ignore notebooks
+*.ipynb
+
+# Ignore data and outputs
+data/
+outputs/
+logs/
+tmp/
+
+# Ignore images/screenshots
+images/
+*.png
+*.jpg
+*.jpeg
+
+# Ignore archives
+*.zip
+*.tar
+*.gz
+
+# Ignore test/dev scripts
+tests/
+scripts/

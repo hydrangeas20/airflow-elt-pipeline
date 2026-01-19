@@ -168,3 +168,42 @@ Transform layer (Python TaskFlow)
 Storage layer (Postgres load)
 
 Orchestration + monitoring layer (Airflow)
+
+### 📤 Outputs
+
+This pipeline produces both database and API-level outputs that can be used for downstream analytics or visualization.
+
+<b> Postgres Output (Loaded Dataset)</b>
+
+Each DAG run inserts one row into a Postgres table containing structured APOD metadata:
+
+```bash
+apod_date
+
+title
+
+explanation
+
+media_type
+
+url
+
+hdurl
+```
+
+##### Example output record:
+
+Field Example Value
+apod_date 2026-01-19
+title CTB 1: The Medulla Nebula
+media_type image
+url https://apod.nasa.gov/apod/image/2601/Ctb1_Konzelmann_960.jpg
+hdurl https://apod.nasa.gov/apod/image/2601/Ctb1_Konzelmann_4009.jpg
+
+### 🖼️ Sample NASA APOD Image Output
+
+The pipeline also retrieves the daily image URL
+
+Example image retrieved from the NASA API:
+
+### 🛰️ Airflow DAG Output Table
