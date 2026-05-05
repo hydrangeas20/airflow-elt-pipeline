@@ -210,3 +210,5 @@ Example image retrieved from the NASA API:
 ### Airflow DAG Output Table
 <img width="618" height="491" alt="Screenshot 2026-01-19 at 1 17 49 AM" src="https://github.com/user-attachments/assets/5328fe82-2f50-473c-b0c0-97ade4e22dd3" />
 
+### AWS Deployment
+<img width="1536" height="1024" alt="Hamda NASA Project AWS Deployment" src="https://github.com/user-attachments/assets/e4ba6854-f96e-4ba8-9ffd-b89371be89fa" />
