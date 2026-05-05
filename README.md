@@ -48,7 +48,7 @@ media_type
 
 The pipeline stores these fields in PostgreSQL for historical querying and analysis.
 
-### ✨ Key Features
+### Key Features
 
 #### Airflow DAG Orchestration
 
