@@ -2,7 +2,7 @@
 
 This repository implements a production style ELT pipeline orchestrated with Apache Airflow. The pipeline extracts JSON data from an external REST API (NASA APOD – Astronomy Picture of the Day), performs lightweight transformation, and loads curated records into a PostgreSQL database. The workflow is containerized using Docker for reproducibility across environments.
 
-## 🌍 Overview
+## Overview
 
 This project demonstrates how to build a production-style data engineering workflow with:
 
@@ -18,7 +18,7 @@ This project demonstrates how to build a production-style data engineering workf
 
 - Containerized services using Docker (Airflow + Postgres)
 
-### 🛰️ Problem Context: API-Based Data Ingestion
+### Problem Context: API-Based Data Ingestion
 
 Many modern data pipelines rely on ingesting data from external APIs (e.g., analytics, telemetry, finance, observability, public datasets). These sources often deliver information as JSON responses, which must be extracted, cleaned, validated, and stored for downstream analysis.
 
@@ -30,7 +30,7 @@ This project simulates a real-world ingestion pipeline where Airflow is used to:
 
 - Persist records into a relational database for reporting and querying
 
-### 📡 Dataset / Data Source
+### Dataset / Data Source
 
 This pipeline extracts data from:
 
@@ -50,7 +50,7 @@ The pipeline stores these fields in PostgreSQL for historical querying and analy
 
 ### ✨ Key Features
 
-#### 🧩 Airflow DAG Orchestration
+#### Airflow DAG Orchestration
 
 - DAG-based pipeline execution with task dependencies
 
@@ -64,19 +64,19 @@ The pipeline stores these fields in PostgreSQL for historical querying and analy
 
 - Logs and troubleshooting
 
-#### 🌐 API Extraction (HTTP Operator)
+#### API Extraction (HTTP Operator)
 
 - Uses Airflow’s SimpleHttpOperator to fetch JSON payloads
 
 - Handles API integration in a reusable Airflow pattern
 
-#### 🔄 Transformation (TaskFlow API)
+#### Transformation (TaskFlow API)
 
 - Transforms raw JSON into a cleaned structured object
 
 - Extracts relevant fields and enforces formatting consistency
 
-#### 🗄️ Load into PostgreSQL (Hook + Operator)
+#### Load into PostgreSQL (Hook + Operator)
 
 - Uses PostgresHook / PostgresOperator to interact with PostgreSQL
 
@@ -84,7 +84,7 @@ The pipeline stores these fields in PostgreSQL for historical querying and analy
 
 - Loads transformed records into structured relational storage
 
-### 🐳 Dockerized Services
+### Dockerized Services
 
 - Airflow and PostgreSQL run as isolated services through Docker
 
@@ -92,7 +92,7 @@ The pipeline stores these fields in PostgreSQL for historical querying and analy
 
 - Database persistence supported through Docker volumes
 
-### 🧱 Pipeline Stages
+### Pipeline Stages
 
 The ELT pipeline consists of three core stages:
 
@@ -116,7 +116,7 @@ Creates table if missing
 
 Inserts transformed record into PostgreSQL
 
-### 🧠 Tech Stack
+### Tech Stack
 
 Language: Python
 
@@ -130,7 +130,7 @@ Operators/Hooks: SimpleHttpOperator, TaskFlow API, PostgresHook
 
 Containerization: Docker + Docker Compose
 
-### 📁 Repository Structure
+### Repository Structure
 
 ```bash
 e2e-elt-pipeline-airflow/
@@ -143,7 +143,7 @@ e2e-elt-pipeline-airflow/
 └── README.md
 ```
 
-### 📋 Setup & Usage
+### Setup & Usage
 
 1. Start services (Docker)
    docker compose up -d
@@ -157,7 +157,7 @@ Enable the DAG in Airflow
 
 Trigger a manual run OR allow schedule to execute automatically
 
-### ⚙️ Workflow Architecture Summary
+### Workflow Architecture Summary
 
 This project demonstrates a practical pipeline architecture commonly used in production environments:
 
@@ -169,7 +169,7 @@ Storage layer (Postgres load)
 
 Orchestration + monitoring layer (Airflow)
 
-### 📤 Outputs
+### Outputs
 
 This pipeline produces both database and API-level outputs that can be used for downstream analytics or visualization.
 
@@ -200,13 +200,13 @@ media_type image
 url https://apod.nasa.gov/apod/image/2601/Ctb1_Konzelmann_960.jpg
 hdurl https://apod.nasa.gov/apod/image/2601/Ctb1_Konzelmann_4009.jpg
 
-### 🖼️ Sample NASA APOD Image Output
+### Sample NASA APOD Image Output
 
 The pipeline also retrieves the daily image URL
 
 Example image retrieved from the NASA API:
 <img width="778" height="719" alt="Screenshot 2026-01-19 at 12 45 03 AM" src="https://github.com/user-attachments/assets/a36e87c5-64fb-4c51-905c-74e656f9f92a" />
 
-### 🛰️ Airflow DAG Output Table
+### Airflow DAG Output Table
 <img width="618" height="491" alt="Screenshot 2026-01-19 at 1 17 49 AM" src="https://github.com/user-attachments/assets/5328fe82-2f50-473c-b0c0-97ade4e22dd3" />
 
